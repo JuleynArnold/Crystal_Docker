@@ -1,0 +1,23 @@
+version: "3.5"
+
+services:
+    dev-crystallang:
+        build:
+            context: .
+            dockerfile: docker-files/DockerfileCrystal
+            args:
+                current_branch: experiment_branch
+        container_name: dev-crystallang
+        volumes:
+            - type: bind
+              source: /home/juleyn/crystal/
+              target: /code/
+        ports:
+            - "4000:4000"
+    dev-database:
+        build:
+            context: .
+            dockerfile: docker-files/DockerfileDB
+        container_name: dev-database
+        environment:
+            MYSQL_ROOT_PASSWORD: test

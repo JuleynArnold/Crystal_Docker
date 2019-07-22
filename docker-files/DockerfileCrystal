@@ -1,0 +1,19 @@
+FROM crystallang/crystal:latest
+#Create args and env variables
+ARG current_branch
+
+#Build Crystal Docker
+#WORKDIR /code
+#RUN rm -rf /code/crystaltest
+#RUN git clone --single-branch --branch $current_branch https://github.com/JuleynArnold/Crystal_Test.git /code/crystaltest
+#RUN git clone https://github.com/JuleynArnold/Crystal_Test.git /code/crystaltest
+#RUN git remote add origin https://github.com/JuleynArnold/Crystal_Test.git
+#COPY project /code/crystaltest
+#COPY config-files/CRYSTAL_ENV.cr /code/crystaltest/CRYSTAL_ENV.cr
+#COPY config-files/shard.yml /code/crystaltest/shard.yml
+#RUN cd /code/crystaltest && shards install && ls
+#CMD git checkout experiment_branch && crystal run src/main.cr --release
+
+#Build Crystal Docker bind with local
+RUN cd /code/
+CMD shards install && crystal run src/main.cr --release
