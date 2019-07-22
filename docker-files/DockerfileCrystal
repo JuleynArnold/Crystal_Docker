@@ -3,7 +3,7 @@ FROM crystallang/crystal:latest
 ARG current_branch
 
 #Build Crystal Docker
-#WORKDIR /code
+WORKDIR /code
 #RUN rm -rf /code/crystaltest
 #RUN git clone --single-branch --branch $current_branch https://github.com/JuleynArnold/Crystal_Test.git /code/crystaltest
 #RUN git clone https://github.com/JuleynArnold/Crystal_Test.git /code/crystaltest
