@@ -3,7 +3,7 @@ FROM crystallang/crystal:latest
 ARG current_branch
 
 #Build Crystal Docker
-WORKDIR /code
+#WORKDIR /code
 #RUN rm -rf /code/crystaltest
 #RUN git clone --single-branch --branch $current_branch https://github.com/JuleynArnold/Crystal_Test.git /code/crystaltest
 #RUN git clone https://github.com/JuleynArnold/Crystal_Test.git /code/crystaltest
@@ -15,5 +15,7 @@ WORKDIR /code
 #CMD git checkout experiment_branch && crystal run src/main.cr --release
 
 #Build Crystal Docker bind with local
+WORKDIR /code
+COPY config-files/CRYSTAL_ENV.cr /code/CRYSTAL_ENV.cr
 RUN cd /code/
 CMD shards install && crystal run src/main.cr --release
